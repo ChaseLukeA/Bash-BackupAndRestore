@@ -1,0 +1,34 @@
+#!/bin/bash
+
+filelist=".files"
+
+clear
+echo ────────────────────────────────────────────────────────────────────────────────────────
+echo "Restoring files listed in [$filelist]..."
+echo ────────────────────────────────────────────────────────────────────────────────────────
+echo
+
+if [ ! -f "$filelist" ]; then
+  echo "No file list exists! Run [makelist file1 file2 ...] to create the [$filelist] file list!"
+  echo
+  exit
+fi
+
+while read filename; do
+  shortname=${filename##*/}
+
+  if [ -f "$shortname" ]; then
+    cp "$shortname" "$filename"
+    if [ $? == 0 ]; then
+      echo "+ File [$shortname] restored successfully!"
+    else
+      echo "--- File [$shortname] restore failed! ---"
+    fi
+  else
+    echo "--- File [$shortname] could not be found! ---"
+  fi
+  echo
+done < $filelist
+
+#fullpath=$(echo "$filename" | sed 's/ /\\ /g')
+#fullpath=$(echo "${fullpath//[$'\t\r\n']}") # removes trailing returns, etc

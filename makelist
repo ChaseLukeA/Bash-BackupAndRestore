@@ -1,0 +1,32 @@
+#!/bin/bash
+
+filelist=".files"
+
+clear
+echo ────────────────────────────────────────────────────────────────────────────────────────
+echo "Creating [$filelist] backup file list..."
+echo ────────────────────────────────────────────────────────────────────────────────────────
+echo
+
+if [ -f "$filelist" ]; then
+  read -p "File list [$filelist] already exists. Overwrite? " yn
+  echo
+  case $yn in
+    [Yy]* ) echo "Removing [$filelist]..."; rm $filelist; echo; echo OK; echo;;
+    [Nn]* ) echo Goodbye.; echo; exit;;
+    * ) echo "You must answer yes or no."; echo; exit;;
+  esac
+  echo
+fi
+
+for filename in "$@"; do
+  shortname=${filename##*/}
+
+  if [ -f "$filename" ]; then
+    echo $filename >> $filelist
+    echo "+ File [$shortname] added to file list."
+  else
+    echo "--- File [$shortname] could not be found! ---"
+  fi
+  echo
+done

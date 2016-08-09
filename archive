@@ -1,0 +1,52 @@
+#!/bin/bash
+
+archive=$(pwd)
+archive="${archive##*/}.zip"
+files=$archive
+filelist=".files"
+
+clear
+echo
+echo ────────────────────────────────────────────────────────────────────────────────────────
+echo "Archiving files listed in [$filelist] to [$archive]..."
+echo ────────────────────────────────────────────────────────────────────────────────────────
+echo
+
+if [ ! -f "$filelist" ]; then
+  echo "No file list exists! Run [makelist file1 file2 ...] to create the [$filelist] file list!"
+  echo
+  exit
+fi
+
+if [ -f "$archive" ]; then
+  read -p "Archive [$archive] already exists. Overwrite? " yn
+  echo
+  case $yn in
+    [Yy]* ) echo "*** Overwriting ***";;
+    [Nn]* ) echo Goodbye.; echo; exit;;
+    * ) echo "You must answer yes or no."; echo; exit;;
+  esac
+fi
+
+while read filename; do
+  shortname=${filename##*/}
+
+  if [ -f "$filename" ]; then
+    files="$files $shortname"
+  else
+    echo "--- File [$shortname] could not be found! ---"
+  fi
+done < $filelist
+
+echo ────────────────────────────────────────────────────────────────────────────────────────
+echo "Archive: $archive"
+zip $files
+echo ────────────────────────────────────────────────────────────────────────────────────────
+
+echo
+if [ $? == 0 ]; then
+  echo "Files archived successfully!"
+else
+  echo "--- File archiving failed! ---"
+fi
+echo
