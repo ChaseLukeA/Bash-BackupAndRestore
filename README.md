@@ -8,25 +8,25 @@ I use a Mac at work and a different Mac at home. I wanted certain preferences (f
 
 In terminal, navigate to the folder containing `install`. Run `./install` to copy the 5 executables to your usr/local/bin directory. You may now type any of the following commands from any directory.
 
-From any directory you want to use as a backup directory:
+####From any directory you want to use as a backup directory:
 
-Make your backup files `.files` list:
+#####Make your backup files `.files` list:*
 
   * Type `t_makelist <file1> <file2> <etc>` at a terminal to create a list of files for regular backup or archiving; you can also type `t_makelist ` and just drag/drop files to the terminal as well
 
-Backing up files in your `.files` list:
+#####Backing up files in your `.files` list:
 
   * Type `t_backup` to copy the list of files in `.files` to the current directory
 
-Restoring files in your `.files` list:
+#####Restoring files in your `.files` list:
 
   * Type `t_restore` to copy the list of files in the current directory back to their original copy directory
 
-Archiving the backed up files in your backup folder:
+#####Archiving the backed up files in your backup folder:
 
   * Type `t_archive` to make a zip file of the files in `.files` with the same name as the current folder
 
-Unarchiving the archived files in your backup folder:
+#####Unarchiving the archived files in your backup folder:
 
   * Type `t_unarchive` to unzip the zipped file of the current folder's name to the current folder
 
