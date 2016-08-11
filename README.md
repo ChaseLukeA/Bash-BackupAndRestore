@@ -23,7 +23,7 @@ In terminal, navigate to the folder containing `install`. Run `./install` to cop
 #####(Quick) Backing up files in your `.files` list:
 
   * Type `t_backupquick` to copy the list of files in `.files` to the current directory
-  * This mode is nearly silent and does not clear screen, great for use in multiple-backup script so you can see easy lin-by-line successes or failures
+  * This mode is nearly silent and does not clear screen, great for use in multiple-backup script so you can see easy line-by-line successes or failures
 
 #####Restoring files in your `.files` list:
 
