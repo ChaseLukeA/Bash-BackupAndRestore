@@ -1,10 +1,14 @@
 #!/bin/bash
 
+wd=`pwd`
 filelist=".files"
 
+cd $wd
+
 clear
+echo
 echo ────────────────────────────────────────────────────────────────────────────────────────
-echo "Restoring files listed in [$filelist]..."
+echo "Backing up files listed in [$filelist]..."
 echo ────────────────────────────────────────────────────────────────────────────────────────
 echo
 
@@ -17,12 +21,12 @@ fi
 while read filename; do
   shortname=${filename##*/}
 
-  if [ -f "$shortname" ]; then
-    cp "$shortname" "$filename"
+  if [ -f "$filename" ]; then
+    cp "$filename" "$shortname"
     if [ $? == 0 ]; then
-      echo "+ File [$shortname] restored successfully!"
+      echo "+ File [$shortname] backed up successfully!"
     else
-      echo "--- File [$shortname] restore failed! ---"
+      echo "--- File [$shortname] backup failed! ---"
     fi
   else
     echo "--- File [$shortname] could not be found! ---"

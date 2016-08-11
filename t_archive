@@ -1,9 +1,11 @@
 #!/bin/bash
 
-archive=$(pwd)
-archive="${archive##*/}.zip"
-files=$archive
+wd=`pwd`
+archive="${wd##*/}.zip"
+zipargs=$archive
 filelist=".files"
+
+cd $wd
 
 clear
 echo
@@ -32,7 +34,7 @@ while read filename; do
   shortname=${filename##*/}
 
   if [ -f "$filename" ]; then
-    files="$files $shortname"
+    zipargs="$zipargs $shortname"
   else
     echo "--- File [$shortname] could not be found! ---"
   fi
@@ -40,7 +42,7 @@ done < $filelist
 
 echo ────────────────────────────────────────────────────────────────────────────────────────
 echo "Archive: $archive"
-zip $files
+zip $zipargs
 echo ────────────────────────────────────────────────────────────────────────────────────────
 
 echo

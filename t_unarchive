@@ -1,9 +1,10 @@
 #!/bin/bash
 
-archive=$(pwd)
-archive="${archive##*/}.zip"
-files=$archive
+wd=`pwd`
+archive="${wd##*/}.zip"
 filelist=".files"
+
+cd $wd
 
 clear
 echo

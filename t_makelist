@@ -1,33 +1,35 @@
 #!/bin/bash
 
+wd=`pwd`
 filelist=".files"
-echo
+
+cd $wd
+
+clear
 echo ────────────────────────────────────────────────────────────────────────────────────────
-echo "Backing up files listed in [$filelist]..."
+echo "Creating [$filelist] backup file list..."
 echo ────────────────────────────────────────────────────────────────────────────────────────
 echo
 
-if [ ! -f "$filelist" ]; then
-  echo "No file list exists! Run [makelist file1 file2 ...] to create the [$filelist] file list!"
+if [ -f "$filelist" ]; then
+  read -p "File list [$filelist] already exists. Overwrite? " yn
   echo
-  exit
+  case $yn in
+    [Yy]* ) echo "Removing [$filelist]..."; rm $filelist; echo; echo OK; echo;;
+    [Nn]* ) echo Goodbye.; echo; exit;;
+    * ) echo "You must answer yes or no."; echo; exit;;
+  esac
+  echo
 fi
 
-while read filename; do
+for filename in "$@"; do
   shortname=${filename##*/}
 
   if [ -f "$filename" ]; then
-    cp "$filename" "$shortname"
-    if [ $? == 0 ]; then
-      echo "+ File [$shortname] backed up successfully!"
-    else
-      echo "--- File [$shortname] backup failed! ---"
-    fi
+    echo $filename >> $filelist
+    echo "+ File [$shortname] added to file list."
   else
     echo "--- File [$shortname] could not be found! ---"
   fi
   echo
-done < $filelist
-
-#fullpath=$(echo "$filename" | sed 's/ /\\ /g')
-#fullpath=$(echo "${fullpath//[$'\t\r\n']}") # removes trailing returns, etc
+done

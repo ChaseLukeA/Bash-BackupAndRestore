@@ -1,0 +1,22 @@
+#!/bin/bash
+
+clear
+echo
+echo ────────────────────────────────────────────────────────────────────────────────────────
+echo "Installing Terminal Backup And Restore..."
+echo ────────────────────────────────────────────────────────────────────────────────────────
+echo
+
+cp t_archive /usr/local/bin/t_archive
+chmod 755 /usr/local/bin/t_archive
+cp t_backup /usr/local/bin/t_backup
+chmod 755 /usr/local/bin/t_backup
+cp t_makelist /usr/local/bin/t_makelist
+chmod 755 /usr/local/bin/t_makelist
+cp t_restore /usr/local/bin/t_restore
+chmod 755 /usr/local/bin/t_restore
+cp t_unarchive /usr/local/bin/t_unarchive
+chmod 755 /usr/local/bin/t_unarchive
+
+echo DONE!
+echo
