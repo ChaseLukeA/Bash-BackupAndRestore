@@ -25,6 +25,7 @@ In terminal, navigate to the folder containing `install`. Run `./install` to cop
   * Type `t_backupquick` to copy the list of files in `.files` to the current directory
   * This mode is nearly silent and does not clear screen, great for use in multiple-backup script so you can see easy line-by-line successes or failures
 
+
 #####Restoring files in your `.files` list:
 
   * Type `t_restore` to copy the list of files in the current directory back to their original copy directory
@@ -37,3 +38,9 @@ In terminal, navigate to the folder containing `install`. Run `./install` to cop
 
   * Type `t_unarchive` to unzip the zipped file of the current folder's name to the current folder
 
+
+###Troubleshooting install:
+
+If you cannot execute `./install` in terminal, give yourself execute permissions by typing `chmod 755 install` and then trying again.
+
+Make sure you have permissions to `/usr/local/bin` (you should) if you have any copy or permission change errors.
