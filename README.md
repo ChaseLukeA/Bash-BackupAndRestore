@@ -6,7 +6,7 @@ I use a Mac at work and a different Mac at home. I wanted certain preferences (f
 
 ##Usage:
 
-In terminal, navigate to the folder the t_<command> and install files are in. Run `./install` to copy the 5 executables to your usr/local/bin directory. You may now type any of the following commands from any directory.
+In terminal, navigate to the folder containing `install`. Run `./install` to copy the 5 executables to your usr/local/bin directory. You may now type any of the following commands from any directory.
 
 From any directory you want to use as a backup directory:
 
