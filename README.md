@@ -83,3 +83,8 @@ And now restore those files:
   `tbar -r`
 
 That's it!
+
+##TODO:
+
+* Add logic to get real paths for files added using symbolic links
+* Add logic to use home path `~/` instead of hardcoded `/Users/username/`
