@@ -1,0 +1,30 @@
+#!/bin/bash
+
+wd=`pwd`
+filelist=".files"
+
+cd $wd
+
+echo "Backing up files listed in [$filelist]..."
+
+if [ ! -f "$filelist" ]; then
+  echo "  --- No file list exists! Run [makelist file1 file2 ...] to create the [$filelist] file list! ---"
+  echo
+  exit
+fi
+
+while read filename; do
+  shortname=${filename##*/}
+
+  if [ -f "$filename" ]; then
+    cp "$filename" "$shortname"
+    if [ $? == 0 ]; then
+      echo "  + File [$shortname] backed up successfully!"
+    else
+      echo "  --- File [$shortname] backup failed! ---"
+    fi
+  else
+    echo "  --- File [$shortname] could not be found! ---"
+  fi
+done < $filelist
+echo
