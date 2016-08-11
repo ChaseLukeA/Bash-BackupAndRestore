@@ -6,11 +6,13 @@ I use a Mac at work and a different Mac at home. I wanted certain preferences (f
 
 ##Usage:
 
+###Installation:
+
 In terminal, navigate to the folder containing `install`. Run `./install` to copy the 5 executables to your usr/local/bin directory. You may now type any of the following commands from any directory.
 
-####From any directory you want to use as a backup directory:
+###Running (from any directory you want to use as a backup directory):
 
-#####Make your backup files `.files` list:*
+#####Make your backup files `.files` list:
 
   * Type `t_makelist <file1> <file2> <etc>` at a terminal to create a list of files for regular backup or archiving; you can also type `t_makelist ` and just drag/drop files to the terminal as well
 
