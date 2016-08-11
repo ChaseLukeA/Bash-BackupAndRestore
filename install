@@ -1,6 +1,6 @@
 #! /bin/bash
 
-declare -a filelist=('t_archive' 't_backup' 't_backupquick' 't_makelist' 't_restore' 't_unarchive')
+declare -a filelist=('tbar' 't_archive' 't_backup' 't_backupquick' 't_makelist' 't_restore' 't_unarchive')
 error=0
 
 clear

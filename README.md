@@ -12,31 +12,33 @@ In terminal, navigate to the folder containing `install`. Run `./install` to cop
 
 ###Running (from any directory you want to use as a backup directory):
 
+####You can use either `tbar -'flag'` or the direct commands below:
+
 #####Make your backup files `.files` list:
 
-  * Type `t_makelist <file1> <file2> <etc>` at a terminal to create a list of files for regular backup or archiving; you can also type `t_makelist ` and just drag/drop files to the terminal as well
+  * Type `tbar -m file1 file2 etc` OR `tbar makelist file1 file 2 etc` OR `t_makelist file1 file2 etc` at a terminal to create a list of files for regular backup or archiving; you can also type `t_makelist ` OR `tbar makelilst ` OR  `tbar -m ` and just drag/drop files to the terminal as well
 
 #####Backing up files in your `.files` list:
 
-  * Type `t_backup` to copy the list of files in `.files` to the current directory
+  * Type `tbar -b` OR `tbar backup` OR `t_backup` to copy the list of files in `.files` to the current directory
 
 #####(Quick) Backing up files in your `.files` list:
 
-  * Type `t_backupquick` to copy the list of files in `.files` to the current directory
+  * Type `tbar -q` OR `tbar backupquick` OR `t_backupquick` to copy the list of files in `.files` to the current directory
   * This mode is nearly silent and does not clear screen, great for use in multiple-backup script so you can see easy line-by-line successes or failures
 
 
 #####Restoring files in your `.files` list:
 
-  * Type `t_restore` to copy the list of files in the current directory back to their original copy directory
+  * Type `tbar -r` OR `tbar restore` OR `t_restore` to copy the list of files in the current directory back to their original copy directory
 
 #####Archiving the backed up files in your backup folder:
 
-  * Type `t_archive` to make a zip file of the files in `.files` with the same name as the current folder
+  * Type `tbar -a` OR `tbar archive` OR `t_archive` to make a zip file of the files in `.files` with the same name as the current folder
 
 #####Unarchiving the archived files in your backup folder:
 
-  * Type `t_unarchive` to unzip the zipped file of the current folder's name to the current folder
+  * Type `tbar -u` OR `tbar unarchive` OR `t_unarchive` to unzip the zipped file of the current folder's name to the current folder
 
 
 ###Troubleshooting install:

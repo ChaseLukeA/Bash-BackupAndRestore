@@ -1,0 +1,36 @@
+#!/bin/bash
+
+wd=`pwd`
+
+cd $wd
+
+case "$1" in
+  "makelist" | "-m")
+    shift
+    t_makelist $@
+    ;;
+  "backup" | "-b")
+    t_backup
+    ;;
+  "backupquick" | "-q")
+    t_backupquick
+    ;;
+  "restore" | "-r")
+    t_restore
+    ;;
+  "archive" | "-a")
+    t_archive
+    ;;
+  "unarchive" | "-u")
+    t_unarchive
+    ;;
+  *)
+    echo Incorrect argument. Please try a valid option:
+    echo "  tbar makelist  OR  tbar -m"
+    echo "  tbar backup  OR tbar -b"
+    echo "  tbar backupquick  OR tbar -q"
+    echo "  tbar restore  OR  tbar -r"
+    echo "  tbar archive  OR  tbar -a"
+    echo "  tbar unarchive  OR  tbar -u"
+    ;;
+esac
